@@ -12,12 +12,21 @@ class User {
 
 
     rentScooter(scooter){
-
-        scooter.rented = true
+        
+        if (scooter.charged === 100) { 
+            scooter.rented = true
+            return `rented scooter at ${scooter.location} station `
+        }  else if(scooter.charged < 100){
+            
+            return "Can't rent"
+        }
 
     }
 
     returnScooter(scooter ,location){
+
+
+
 
         scooter.location = location
         scooter.rented = false
@@ -32,7 +41,7 @@ class User {
 
         this.accountBalance = this.accountBalance + number
     
-        return   `Added ${number} dollars to ${this.username}'s account. Account balance now ${this.accountBalance}.`
+        return   `Added ${number} dollars to ${this.username}'s account. Account balance is now ${this.accountBalance}.`
     
     
      }

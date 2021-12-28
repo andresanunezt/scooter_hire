@@ -47,6 +47,20 @@ describe("User Object Methods", () => {
         expect(testScooter2.rented).toBeFalsy()
      })
 
+     test('Can only rent fully charged scooter', () => {
+
+        const testUser4 = new User("Rodrigo","rudy")   
+        const testScooter4 = new Scooter('Brooklyn', 100);
+        const testScooter5 = new Scooter('Brooklyn', 66);
+        
+        console.log(testUser4.rentScooter(testScooter4))
+        console.log(testUser4.rentScooter(testScooter5))
+        
+        expect(testUser4.rentScooter(testScooter5)).toBe("Can't rent")
+        expect(testScooter4.rented).toBeTruthy()
+        expect(testScooter5.rented).toBeFalsy()
+     })
+
      test('Can add money to account', () => {
 
         const testUser = new User("John","johnnie333")   
