@@ -5,7 +5,7 @@ describe('Scooter Object Properties', () => {
 
 
 	test('Scooter is an object, with a location', () => {
-		const testScooter = new Scooter('Brooklyn');
+		const testScooter = new Scooter(1,'Brooklyn');
 
 		expect(typeof testScooter).toBe('object');
 		expect(testScooter.location).toBe('Brooklyn');
@@ -14,12 +14,16 @@ describe('Scooter Object Properties', () => {
 
     test('Scooter has a charged percentage', () => {
 		
-        const testScooter = new Scooter('Brooklyn');
+        const testScooter = new Scooter(2,'Brooklyn');
        
 		expect(testScooter.charged).not.toBeNull();
        
 
 	})
+
+    test("Has an all array", () => {
+        expect(Scooter.all.length).toBe(2)
+    })
 
 })
 

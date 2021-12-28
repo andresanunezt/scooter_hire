@@ -1,11 +1,21 @@
+const Scooter = require("./Scooter")
+
+
 
 class User {
+
+
+
+
+
+    static all = []
 
     constructor(name, username){
 
         this.name = name,
-        this.username = username
-        this.accountBalance = 0
+        this.username = username,
+        this.accountBalance = 0,
+        User.all.push(this)
 
 
     }
@@ -14,8 +24,12 @@ class User {
     rentScooter(scooter){
         
         if (scooter.charged === 100) { 
-            scooter.rented = true
-            return `rented scooter at ${scooter.location} station `
+            scooter.rented = true,
+
+            Scooter.all.splice(Scooter.all.findIndex( s => s.id !== scooter.id),1);
+
+            return `rented scooter at ${scooter.location} station`
+
         }  else if(scooter.charged < 100){
             
             return "Can't rent"
@@ -30,7 +44,7 @@ class User {
 
         scooter.location = location
         scooter.rented = false
-    
+        Scooter.all.push(scooter)
         return   `Returned scooter at ${scooter.location} charging station`
     
     

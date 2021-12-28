@@ -2,11 +2,13 @@ class Scooter {
 
     static all = []
 
-constructor(location, charged = 100)  {
+constructor(id, location, charged = 100)  {
 
+    this.id = id,
     this.location = location,
     this.charged = charged,
-    this.rented = false
+    this.rented = false,
+    Scooter.all.push(this)
 
     this.accurateBattery()
 }
