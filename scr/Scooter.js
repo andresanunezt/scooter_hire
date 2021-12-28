@@ -5,7 +5,8 @@ class Scooter {
 constructor(location, charged = 100)  {
 
     this.location = location,
-    this.charged = charged
+    this.charged = charged,
+    this.rented = false
 
     this.accurateBattery()
 }
@@ -26,14 +27,7 @@ checkBattery (){
     
 }
 
- returnedAt(location){
 
-    this.location = location
-
-    return   `Returned scooter at ${this.location} charging station`
-
-
- }
 
 
 
