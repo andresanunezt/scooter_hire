@@ -6,7 +6,7 @@ const Scooter = require("../scr/Scooter");
 describe ('User Object Properties', () => {
 
     const user1 = new User("name")
-    const user2 = new User("name")
+    const user2 = new User("name1")
 
     test("User is an object", () => {
         expect(typeof user1).toBe('object')
@@ -33,10 +33,12 @@ describe("User Object Methods", () => {
 
     const user2 = new User("Bob","billytothebob")
     const testScooter = new Scooter(1 ,'Brooklyn', 100);
-
+    const testScooter444 = new Scooter(444 ,'Brooklyn', 88);
     user2.rentScooter(testScooter)
 
     expect(testScooter.rented).toBeTruthy()
+    expect(user2.rentScooter(testScooter444)).toBe("Can't rent")
+    expect(testScooter444.rented).toBeFalsy()
 
     })
 
@@ -45,7 +47,7 @@ describe("User Object Methods", () => {
         
         console.log(Scooter.all)
 
-        expect(Scooter.all).toHaveLength(0)
+        expect(Scooter.all).toHaveLength(1)
     
         })
 
@@ -69,7 +71,7 @@ describe("User Object Methods", () => {
         console.log(User.all)
         console.log(Scooter.all)
 
-        expect(Scooter.all.length).toBe(1)
+        expect(Scooter.all.length).toBe(2)
      })
 
      test('Can only rent fully charged scooter', () => {

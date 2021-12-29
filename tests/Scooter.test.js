@@ -5,7 +5,7 @@ describe('Scooter Object Properties', () => {
 
 
 	test('Scooter is an object, with a location', () => {
-		const testScooter = new Scooter(1,'Brooklyn');
+		const testScooter = new Scooter(8,'Brooklyn');
 
 		expect(typeof testScooter).toBe('object');
 		expect(testScooter.location).toBe('Brooklyn');
@@ -14,7 +14,7 @@ describe('Scooter Object Properties', () => {
 
     test('Scooter has a charged percentage', () => {
 		
-        const testScooter = new Scooter(2,'Brooklyn');
+        const testScooter = new Scooter(9,'Brooklyn');
        
 		expect(testScooter.charged).not.toBeNull();
        
@@ -32,7 +32,7 @@ describe('Scooter Object Methods', () => {
 
     test('Scooter can check percentage', () => {
             
-        const testScooter = new Scooter('Brooklyn');
+        const testScooter = new Scooter(99,'Brooklyn');
             
          expect(testScooter.checkBattery()).toBe(`Battery is ${testScooter.charged} %`);
         
@@ -40,8 +40,8 @@ describe('Scooter Object Methods', () => {
 
     test('Scooter charged percentage cannot be lower than 0 or greater than 100', () => {
             
-        const testScooter2 = new Scooter('Brooklyn', -1);
-        const testScooter3 = new Scooter('Brooklyn', 101);
+        const testScooter2 = new Scooter(77,'Brooklyn', -1);
+        const testScooter3 = new Scooter(88,'Brooklyn', 101);
 
         expect(testScooter2.charged).toBeGreaterThanOrEqual(0);
         expect(testScooter3.charged).toBeLessThanOrEqual(100);
