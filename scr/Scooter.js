@@ -6,7 +6,8 @@ class Scooter extends ChargingStation {
 
 constructor(location, charged = 100)  {
 
-    super(location)
+    super()
+    this.location = location,
     this.id = Math.random(),
     this.charged = charged,
     this.rented = false,

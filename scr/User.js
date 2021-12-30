@@ -22,10 +22,10 @@ class User {
 
     
 
-    rentScooter(scooter){
+    rentScooter(scooter, chargingStation){
         
-        // if (scooter.charged === 100 && scooter.location === this.location) { 
-            if (scooter.charged === 100) {
+        if (scooter.charged === 100 && scooter.location === chargingStation.location) { 
+            // if (scooter.charged === 100) {
             scooter.rented = true,
 
             Scooter.all.splice(Scooter.all.findIndex( s => s.id !== scooter.id),1);
@@ -39,16 +39,16 @@ class User {
 
     }
 
-    returnScooter(scooter ,location){
+    returnScooter(scooter ,chargingStation){
 
 
 
 
-        scooter.location = location
+        scooter.location = chargingStation.location
         scooter.rented = false
         Scooter.all.push(scooter)
-        return   `Returned scooter at ${scooter.location} charging station`
-    
+        return   `Returned scooter at ${chargingStation.location} charging station`
+        
     
      }
 

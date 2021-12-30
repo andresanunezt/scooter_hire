@@ -2,6 +2,8 @@
 
 const User = require("../scr/User")
 const Scooter = require("../scr/Scooter");
+const ChargingStation = require("../scr/ChargingStation");
+
 
 describe ('User Object Properties', () => {
 
@@ -32,9 +34,12 @@ describe("User Object Methods", () => {
     test("Can Rent a scooter", () => {
 
     const user2 = new User("Bob","billytothebob")
+    
+    const chargingStationTest = new ChargingStation("Brooklyn")
+    
     const testScooter = new Scooter('Brooklyn', 100);
     const testScooter444 = new Scooter('Brooklyn', 88);
-    user2.rentScooter(testScooter)
+    user2.rentScooter(testScooter, chargingStationTest)
 
     expect(testScooter.rented).toBeTruthy()
     expect(user2.rentScooter(testScooter444)).toBe("Can't rent")
@@ -56,9 +61,13 @@ describe("User Object Methods", () => {
 
         const testUser = new User("Margaret","thatcher_m")   
         const testScooter2 = new Scooter('Brooklyn', 100);
-        testUser.rentScooter(testScooter2)
+
+        const chargingStation3 = new ChargingStation("Queens")
+        const chargingStation2 = new ChargingStation("Brooklyn")
+
+        testUser.rentScooter(testScooter2, chargingStation2)
         
-        testUser.returnScooter(testScooter2, "Queens")
+        testUser.returnScooter(testScooter2, chargingStation3 )
         
         expect(testScooter2.location).toBe("Queens")
         expect(testScooter2.rented).toBeFalsy()
@@ -79,11 +88,13 @@ describe("User Object Methods", () => {
         const testUser4 = new User("Rodrigo","rudy")   
         const testScooter4 = new Scooter('Brooklyn', 100);
         const testScooter5 = new Scooter('Brooklyn', 66);
+        const chargingStation1 = new ChargingStation("Brooklyn")
         
-        console.log(testUser4.rentScooter(testScooter4))
-        console.log(testUser4.rentScooter(testScooter5))
+        console.log(testUser4.rentScooter(testScooter4, chargingStation1))
         
-        expect(testUser4.rentScooter(testScooter5)).toBe("Can't rent")
+
+        
+        expect(testUser4.rentScooter(testScooter5, chargingStation1)).toBe("Can't rent")
         expect(testScooter4.rented).toBeTruthy()
         expect(testScooter5.rented).toBeFalsy()
      })
