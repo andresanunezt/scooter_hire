@@ -1,5 +1,6 @@
 class ChargingStation {
 
+static all = []
     
 
 constructor(location)  {

@@ -20,10 +20,12 @@ class User {
 
     }
 
+    
 
     rentScooter(scooter){
         
-        if (scooter.charged === 100 ) { 
+        // if (scooter.charged === 100 && scooter.location === this.location) { 
+            if (scooter.charged === 100) {
             scooter.rented = true,
 
             Scooter.all.splice(Scooter.all.findIndex( s => s.id !== scooter.id),1);

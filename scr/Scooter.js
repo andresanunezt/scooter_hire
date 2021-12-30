@@ -4,11 +4,10 @@ class Scooter extends ChargingStation {
 
     static all = []
 
-constructor(id, location, charged = 100)  {
+constructor(location, charged = 100)  {
 
-    super()
-    this.id = id,
-    this.location = location,
+    super(location)
+    this.id = Math.random(),
     this.charged = charged,
     this.rented = false,
     Scooter.all.push(this)

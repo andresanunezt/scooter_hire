@@ -1,4 +1,4 @@
-const { TestWatcher } = require("jest");
+
 
 const User = require("../scr/User")
 const Scooter = require("../scr/Scooter");
@@ -32,8 +32,8 @@ describe("User Object Methods", () => {
     test("Can Rent a scooter", () => {
 
     const user2 = new User("Bob","billytothebob")
-    const testScooter = new Scooter(1 ,'Brooklyn', 100);
-    const testScooter444 = new Scooter(444 ,'Brooklyn', 88);
+    const testScooter = new Scooter('Brooklyn', 100);
+    const testScooter444 = new Scooter('Brooklyn', 88);
     user2.rentScooter(testScooter)
 
     expect(testScooter.rented).toBeTruthy()
@@ -55,7 +55,7 @@ describe("User Object Methods", () => {
     test('Can Return Scooter', () => {
 
         const testUser = new User("Margaret","thatcher_m")   
-        const testScooter2 = new Scooter(2 ,'Brooklyn', 100);
+        const testScooter2 = new Scooter('Brooklyn', 100);
         testUser.rentScooter(testScooter2)
         
         testUser.returnScooter(testScooter2, "Queens")
@@ -77,8 +77,8 @@ describe("User Object Methods", () => {
      test('Can only rent fully charged scooter', () => {
 
         const testUser4 = new User("Rodrigo","rudy")   
-        const testScooter4 = new Scooter(3,'Brooklyn', 100);
-        const testScooter5 = new Scooter(4, 'Brooklyn', 66);
+        const testScooter4 = new Scooter('Brooklyn', 100);
+        const testScooter5 = new Scooter('Brooklyn', 66);
         
         console.log(testUser4.rentScooter(testScooter4))
         console.log(testUser4.rentScooter(testScooter5))
