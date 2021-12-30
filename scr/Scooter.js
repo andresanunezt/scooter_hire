@@ -1,9 +1,12 @@
-class Scooter {
+const ChargingStation = require("./ChargingStation")
+
+class Scooter extends ChargingStation {
 
     static all = []
 
 constructor(id, location, charged = 100)  {
 
+    super()
     this.id = id,
     this.location = location,
     this.charged = charged,
