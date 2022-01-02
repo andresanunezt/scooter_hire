@@ -10,10 +10,12 @@ class User {
 
     static all = []
 
-    constructor(name, username){
+    constructor(name, username, age){
 
+        
         this.name = name,
         this.username = username,
+        this.age = age,
         this.accountBalance = 0,
         User.all.push(this)
 
@@ -24,7 +26,7 @@ class User {
 
     rentScooter(scooter, chargingStation){
         
-        if (scooter.charged === 100 && scooter.location === chargingStation.location) { 
+        if (scooter.charged === 100 && scooter.location === chargingStation.location && this.age >= 18) { 
             // if (scooter.charged === 100) {
             scooter.rented = true,
 

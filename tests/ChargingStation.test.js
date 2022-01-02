@@ -41,11 +41,8 @@ describe('Charging Station Object Methods', () => {
         chargingStationTest.addScooter(testScooter)
             expect(chargingStationTest.scooters.length).toBeGreaterThan(0);
             
-            })
-
         
-
-   
+        })
 
 
 })

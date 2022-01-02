@@ -1,18 +1,19 @@
 const ChargingStation = require("./ChargingStation")
 
-class Scooter extends ChargingStation {
+class Scooter  {
 
     static all = []
 
 constructor(location, charged = 100)  {
 
-    super()
+    
     this.location = location,
     this.id = Math.random(),
     this.charged = charged,
     this.rented = false,
     Scooter.all.push(this)
 
+    this.assignToChargingStation()
     this.accurateBattery()
 }
 
@@ -33,14 +34,11 @@ checkBattery (){
 
 }
 
-
 assignToChargingStation() {
 
-    ChargingStation.all.forEach()
+    ChargingStation.all.forEach(cS => cS.addScooter(this))
 
 }
-
-
 
 
 

@@ -5,12 +5,7 @@ const Scooter = require("../scr/Scooter");
 describe('Scooter Object Properties', () => {
 
 
-    test('Scooter is an instance of ChargingStation class', () => {
-		const testScooter = new Scooter('Bed-Stuy');
-
-		expect(testScooter instanceof ChargingStation).toBeTruthy();
-		
-	})
+    
 
 	test('Scooter is an object, with a location', () => {
 		const testScooter = new Scooter('Brooklyn');
@@ -31,7 +26,8 @@ describe('Scooter Object Properties', () => {
 	})
 
     test("Has an all array", () => {
-        expect(Scooter.all.length).toBe(3)
+        console.log(Scooter.all)
+        expect(Scooter.all.length).toBe(2)
     })
 
 })
@@ -51,17 +47,17 @@ describe('Scooter Object Methods', () => {
             
         const testScooter2 = new Scooter('Brooklyn', -1);
         const testScooter3 = new Scooter('Brooklyn', 101);
-
+        
         expect(testScooter2.charged).toBeGreaterThanOrEqual(0);
         expect(testScooter3.charged).toBeLessThanOrEqual(100);
+
+     
     
     })
 
 
    
-
+    
 
 })
 
-
-// `Battery is ${this.charged} %`
