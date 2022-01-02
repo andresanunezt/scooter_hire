@@ -30,6 +30,14 @@ checkBattery (){
 
     return `Battery is ${this.charged} %`;
     
+
+}
+
+
+assignToChargingStation() {
+
+    ChargingStation.all.forEach()
+
 }
 
 

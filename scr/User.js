@@ -28,7 +28,9 @@ class User {
             // if (scooter.charged === 100) {
             scooter.rented = true,
 
-            Scooter.all.splice(Scooter.all.findIndex( s => s.id !== scooter.id),1);
+            // Scooter.all.splice(Scooter.all.findIndex( s => s.id !== scooter.id),1);
+
+            chargingStation.scooters.splice(chargingStation.scooters.findIndex( s => s.id !== scooter.id),1);
 
             return `rented scooter at ${scooter.location} station`
 
@@ -46,7 +48,8 @@ class User {
 
         scooter.location = chargingStation.location
         scooter.rented = false
-        Scooter.all.push(scooter)
+        chargingStation.scooters.push(scooter)
+        this.accountBalance = this.accountBalance - 20
         return   `Returned scooter at ${chargingStation.location} charging station`
         
     

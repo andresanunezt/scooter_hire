@@ -30,6 +30,7 @@ describe ('User Object Properties', () => {
 
 
 describe("User Object Methods", () => {
+   
     
     test("Can Rent a scooter", () => {
 
@@ -39,29 +40,29 @@ describe("User Object Methods", () => {
     
     const testScooter = new Scooter('Brooklyn', 100);
     const testScooter444 = new Scooter('Brooklyn', 88);
+    chargingStationTest.addScooter(testScooter444)
+    chargingStationTest.addScooter(testScooter)
+
     user2.rentScooter(testScooter, chargingStationTest)
+
+    
 
     expect(testScooter.rented).toBeTruthy()
     expect(user2.rentScooter(testScooter444)).toBe("Can't rent")
     expect(testScooter444.rented).toBeFalsy()
 
+    console.log(chargingStationTest.scooters)
+
     })
 
-    test("Takes Scooter out of Scooter array", () => {
-
-        
-        console.log(Scooter.all)
-
-        expect(Scooter.all).toHaveLength(1)
-    
-        })
-
+ 
 
     test('Can Return Scooter', () => {
 
-        const testUser = new User("Margaret","thatcher_m")   
+        const testUser = new User("Margaret","thatcher_m") 
+        testUser.addMoney(80)  
         const testScooter2 = new Scooter('Brooklyn', 100);
-
+        
         const chargingStation3 = new ChargingStation("Queens")
         const chargingStation2 = new ChargingStation("Brooklyn")
 
@@ -71,17 +72,34 @@ describe("User Object Methods", () => {
         
         expect(testScooter2.location).toBe("Queens")
         expect(testScooter2.rented).toBeFalsy()
+        expect(testUser.accountBalance).toBe(60)
      })
 
      test('Return method adds Scooter to Array', () => {
 
+        const returnUser = new User("Jen", "jenny");
+        const chargingStationReturnTest = new ChargingStation("Queens")
+        const testScooterReturn2 = new Scooter('Queens', 100);
+        const testScooterReturn = new Scooter('Queens', 100);
+
+        chargingStationReturnTest.addScooter(testScooterReturn)
+        chargingStationReturnTest.addScooter(testScooterReturn2)
         
-       
+        returnUser.rentScooter(testScooterReturn, chargingStationReturnTest)
+        returnUser.rentScooter(testScooterReturn2, chargingStationReturnTest)
+
+        returnUser.returnScooter(testScooterReturn, chargingStationReturnTest)
+        returnUser.returnScooter(testScooterReturn2, chargingStationReturnTest)
+        
+        
         console.log(User.all)
         console.log(Scooter.all)
 
-        expect(Scooter.all.length).toBe(2)
+        expect(chargingStationReturnTest.scooters.length).toBe(2)
+        
+        // expect(Scooter.all.length).toBe(2)
      })
+
 
      test('Can only rent fully charged scooter', () => {
 
