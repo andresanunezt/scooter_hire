@@ -55,6 +55,18 @@ describe('Scooter Object Methods', () => {
     
     })
 
+    test('Scooter assigned to Charging Station upon creation', () => {
+        
+        const chargingStation1 = new ChargingStation("Long Island City")
+        const testScooter4 = new Scooter('Long Island City', -1);
+        
+        expect(chargingStation1.scooters.length).toBe(1);
+       
+
+     
+    
+    })
+
 
    
     
