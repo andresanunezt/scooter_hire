@@ -36,7 +36,7 @@ checkBattery (){
 
 assignToChargingStation() {
 
-    ChargingStation.all.forEach(chargingStation => chargingS.addScooter(this))
+    ChargingStation.all.forEach(chargingStation => chargingStation.addScooter(this))
 
 }
 
