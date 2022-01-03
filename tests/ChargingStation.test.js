@@ -31,14 +31,13 @@ describe('Charging Station Object Methods', () => {
         
         })
 
-
         test('Can add scooter to array', () => {
             
 
-        
         testScooter =  new Scooter("Williamsburg")
 
         chargingStationTest.addScooter(testScooter)
+        
             expect(chargingStationTest.scooters.length).toBeGreaterThan(0);
             
         
